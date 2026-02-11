@@ -60,7 +60,7 @@ const trials = {
       on_finish: function (data) {
         const filename = `${subject_id}_${"block" + time_through}_${
           jsPsych.getProgress().current_trial_global
-        }_${jsPsych.timelineVariable(stimulus)}_audio.webm`;
+        }_${jsPsych.timelineVariable("stimulus")}_audio.webm`;
         jsPsychPipe.saveBase64Data("OINjRk5EIMi8", filename, data.response);
         // delete the base64 data to save space. store the filename instead.
         data.response = filename;
@@ -105,12 +105,10 @@ const trials = {
 
 const num_blocks = 4;
 
-timeline.push(trials);
-
-// for (let block = 0; block < num_blocks; block++) {
-//   timeline.push(trials);
-//   time_through++;
-// }
+for (let block = 0; block < num_blocks; block++) {
+  timeline.push(trials);
+  time_through++;
+}
 
 const post_survey = {
   type: jsPsychSurvey,
