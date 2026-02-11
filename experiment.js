@@ -39,10 +39,10 @@ const trials = {
     {
       type: jsPsychHtmlAudioResponse,
       stimulus: `
-      <p style="font-size:48px; color:black;">Test: '{jsPsych.timelineVariable(
+      <p style="font-size:48px; color:black;">Test: '${jsPsych.timelineVariable(
         "stimulus"
       )}'</p>
-      <p style="font-size:48px; color:black;">Test: {jsPsych.timelineVariable(
+      <p style="font-size:48px; color:black;">Test: ${jsPsych.timelineVariable(
         "stimulus"
       )}</p>
     <p>Speak the above word.</p>`,
