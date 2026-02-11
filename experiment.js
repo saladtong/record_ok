@@ -40,13 +40,10 @@ const trials = {
       type: jsPsychHtmlAudioResponse,
       stimulus: function () {
         return `
-      {<p style="font-size:48px; color:black;">Test new: '${jsPsych.timelineVariable(
-        `stimulus`
-      )}'</p>
-      <p style="font-size:48px; color:black;">Test two: ${jsPsych.timelineVariable(
+      <p style="font-size:48px; color:black;">${jsPsych.timelineVariable(
         "stimulus"
       )}</p>
-    <p>Speak the above word.</p>}`;
+    <p>Speak the above word.</p>`;
       },
       recording_duration: 3500,
       show_done_button: true,
