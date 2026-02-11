@@ -1,6 +1,6 @@
 const jsPsych = initJsPsych({
   on_finish: function () {
-    // jsPsych.data.displayData("csv");
+    jsPsych.data.displayData("csv");
   },
 });
 let timeline = [];
@@ -113,9 +113,9 @@ const trials = {
 
 const num_blocks = 4;
 
-for (let block = 0; block < num_blocks; block++) {
-  timeline.push(trials);
-}
+// for (let block = 0; block < num_blocks; block++) {
+//   timeline.push(trials);
+// }
 
 const post_survey = {
   type: jsPsychSurvey,
@@ -128,28 +128,28 @@ const post_survey = {
           {
             type: "matrix",
             title:
-              "Please indicate if you agree or disagree with the following statements on a scale from 1 (Strongly Disagree) to 4 (Strongly Agree).",
+              "Please indicate if you agree or disagree with the following statements on a scale from 5 (Strongly Agree) to 1 (Strongly Disagree).",
             columns: [
               {
-                value: 1,
-                text: "1",
+                value: 5,
+                text: "5",
               },
               {
-                value: 2,
-                text: "2",
+                value: 4,
+                text: "4",
               },
               {
                 value: 3,
                 text: "3",
               },
               {
-                value: 4,
-                text: "4",
+                value: 2,
+                text: "2",
               },
-              // {
-              //   value: 5,
-              //   text: "5",
-              // },
+              {
+                value: 1,
+                text: "1",
+              },
             ],
             rows: [
               {
