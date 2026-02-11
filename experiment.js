@@ -105,10 +105,12 @@ const trials = {
 
 const num_blocks = 4;
 
-for (let block = 0; block < num_blocks; block++) {
-  timeline.push(trials);
-  time_through++;
-}
+timeline.push(trials);
+
+// for (let block = 0; block < num_blocks; block++) {
+//   timeline.push(trials);
+//   time_through++;
+// }
 
 const post_survey = {
   type: jsPsychSurvey,
