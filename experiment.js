@@ -128,27 +128,27 @@ const post_survey = {
           {
             type: "matrix",
             title:
-              "Please indicate if you agree or disagree with the following statements",
+              "Please indicate if you agree or disagree with the following statements on a scale from 5 (Strongly Agree) to 1 (Strongly Disagree).",
             columns: [
               {
                 value: 5,
-                text: "Strongly agree",
+                text: "5",
               },
               {
                 value: 4,
-                text: "Agree",
+                text: "4",
               },
               {
                 value: 3,
-                text: "Neutral",
+                text: "3",
               },
               {
                 value: 2,
-                text: "Disagree",
+                text: "2",
               },
               {
                 value: 1,
-                text: "Strongly disagree",
+                text: "1",
               },
             ],
             rows: [
