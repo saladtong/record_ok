@@ -15,7 +15,7 @@
 
 .loading {
   background: #bfc2d1;
-  width: 500px;
+  width: 250px;
   height: 10px;
   border-radius: 5px;
 }
@@ -25,7 +25,7 @@
   width: 0%;
   height: 10px;
   border-radius: 5px;
-  animation: progress-bar 4s linear forwards;
+  animation: progress-bar 3.5s linear forwards;
 }
 
 @keyframes progress-bar {
