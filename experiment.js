@@ -33,6 +33,7 @@ var initialize = {
 timeline.push(initialize);
 
 var time_through = 1;
+var num = 0;
 
 const trials = {
   timeline: [
@@ -58,7 +59,12 @@ const trials = {
       record_again_button_label: "Record Again",
       accept_button_label: "Continue",
       on_finish: function (data) {
-        const filename = `${subject_id}_block_${time_through}_trial_${
+        num++;
+        if (num > 25) {
+          time_through++;
+          num = 0;
+        }
+        const filename = `${subject_id}_block_${time_through}_number_${num}_trial_${
           jsPsych.getProgress().current_trial_global
         }_${jsPsych.timelineVariable("stimulus")}_audio.webm`;
         jsPsychPipe.saveBase64Data("OINjRk5EIMi8", filename, data.response);
@@ -99,6 +105,7 @@ const trials = {
     { stimulus: "okie" },
     { stimulus: "okii" },
     { stimulus: "okk" },
+    { stimulus: "okok" },
   ],
   randomize_order: true,
 };
@@ -106,8 +113,8 @@ const trials = {
 const num_blocks = 4;
 
 for (let block = 0; block < num_blocks; block++) {
-  timeline.push(trials);
   time_through++;
+  timeline.push(trials);
 }
 
 const post_survey = {
