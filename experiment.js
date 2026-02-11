@@ -39,7 +39,9 @@ const trials = {
     {
       type: jsPsychHtmlAudioResponse,
       stimulus: `
-    <p style="font-size:48px; color:black;">{jsPsych.timelineVariable("stimulus")}</p>
+    <p style="font-size:48px; color:black;">${jsPsych.timelineVariable(
+      "stimulus"
+    )}</p>
     <p>Speak the above word.</p>`,
       recording_duration: 3500,
       show_done_button: true,
@@ -50,7 +52,7 @@ const trials = {
       on_finish: function (data) {
         const filename = `${subject_id}_${"block" + time_through}_${
           jsPsych.getProgress().current_trial_global
-        }_${jsPsych.timelineVariable("stimulus")}_audio.webm`;
+        }_${jsPsych.timelineVariable(stimulus)}_audio.webm`;
         jsPsychPipe.saveBase64Data("OINjRk5EIMi8", filename, data.response);
         // delete the base64 data to save space. store the filename instead.
         data.response = filename;
