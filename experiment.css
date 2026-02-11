@@ -12,3 +12,24 @@
 .option {
   font-size: 24px;
 }
+
+.loading {
+  background: #bfc2d1;
+  width: 500px;
+  height: 10px;
+  border-radius: 5px;
+}
+
+.progress-bar {
+  background: #1b1e1e;
+  width: 0%;
+  height: 10px;
+  border-radius: 5px;
+  animation: progress-bar 4s linear forwards;
+}
+
+@keyframes progress-bar {
+  100% {
+    width: 100%;
+  }
+}

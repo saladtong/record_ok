@@ -43,9 +43,15 @@ const trials = {
       <p style="font-size:48px; color:black;">${jsPsych.timelineVariable(
         "stimulus"
       )}</p>
-    <p>Speak the above word.</p>`;
+    <p>Speak the above word.</p>
+    <div class="loading">
+      <div class="progress-bar">
+        <span>100%</span>
+      </div>
+    </div>
+    `;
       },
-      recording_duration: 3500,
+      recording_duration: 4000,
       show_done_button: true,
       done_button_label: "Continue",
       allow_playback: true,
