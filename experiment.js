@@ -60,9 +60,9 @@ const trials = {
       accept_button_label: "Continue",
       on_finish: function (data) {
         num++;
-        if (num > 3) {
+        if (num > 25) {
           time_through++;
-          num = 0;
+          num = 1;
         }
         // id, block, order, global attempt number
         const filename = `${subject_id}_b${time_through}_#${num}_a${
@@ -85,37 +85,37 @@ const trials = {
     { stimulus: "O.K." },
     { stimulus: "OK" },
     { stimulus: "ok" },
-    // { stimulus: "Ok" },
-    // { stimulus: "ok ok" },
-    // { stimulus: "ok," },
-    // { stimulus: "ok!" },
-    // { stimulus: "Ok!" },
-    // { stimulus: "OK!" },
-    // { stimulus: "ok." },
-    // { stimulus: "OK." },
-    // { stimulus: "okay" },
-    // { stimulus: "Okay" },
-    // { stimulus: "OKAY" },
-    // { stimulus: "okay!" },
-    // { stimulus: "Okay!" },
-    // { stimulus: "okay." },
-    // { stimulus: "Okay." },
-    // { stimulus: "okayy" },
-    // { stimulus: "okey" },
-    // { stimulus: "oki" },
-    // { stimulus: "okie" },
-    // { stimulus: "okii" },
-    // { stimulus: "okk" },
-    // { stimulus: "okok" },
+    { stimulus: "Ok" },
+    { stimulus: "ok ok" },
+    { stimulus: "ok," },
+    { stimulus: "ok!" },
+    { stimulus: "Ok!" },
+    { stimulus: "OK!" },
+    { stimulus: "ok." },
+    { stimulus: "OK." },
+    { stimulus: "okay" },
+    { stimulus: "Okay" },
+    { stimulus: "OKAY" },
+    { stimulus: "okay!" },
+    { stimulus: "Okay!" },
+    { stimulus: "okay." },
+    { stimulus: "Okay." },
+    { stimulus: "okayy" },
+    { stimulus: "okey" },
+    { stimulus: "oki" },
+    { stimulus: "okie" },
+    { stimulus: "okii" },
+    { stimulus: "okk" },
+    { stimulus: "okok" },
   ],
   randomize_order: true,
 };
 
-const num_blocks = 3;
+const num_blocks = 4;
 
-for (let block = 0; block < num_blocks; block++) {
-  timeline.push(trials);
-}
+// for (let block = 0; block < num_blocks; block++) {
+//   timeline.push(trials);
+// }
 
 const post_survey = {
   type: jsPsychSurvey,
