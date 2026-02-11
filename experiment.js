@@ -41,7 +41,7 @@ const trials = {
       stimulus: function () {
         return `
       {<p style="font-size:48px; color:black;">Test: '${jsPsych.timelineVariable(
-        "stimulus"
+        `stimulus`
       )}'</p>
       <p style="font-size:48px; color:black;">Test: ${jsPsych.timelineVariable(
         "stimulus"
