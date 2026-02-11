@@ -256,7 +256,7 @@ const post_survey = {
             rowTitleWidth: 500,
             columnMinWidth: 80,
             alternateRows: true,
-            eachRowRequired: true,
+            isAllRowRequired: true,
           },
         ],
       },
@@ -271,14 +271,14 @@ const post_survey = {
               "Did you read the instructions and do you think you did the task correctly?",
             name: "instructions",
             choices: ["Yes", "No", "I was confused"],
-            required: true,
+            isRequired: true,
           },
           {
             type: "dropdown",
             title: "Gender:",
             name: "Gender",
             choices: ["Female", "Male", "Non-binary/Non-conforming", "Other"],
-            required: true,
+            isRequired: true,
           },
 
           {
@@ -286,7 +286,7 @@ const post_survey = {
             title: "Age:",
             name: "age",
             textbox_columns: 10,
-            required: true,
+            isRequired: true,
           },
           {
             type: "dropdown",
@@ -300,7 +300,7 @@ const post_survey = {
               "Hold a higher degree",
             ],
             showOtherItem: true,
-            required: true,
+            isRequired: true,
           },
           {
             type: "text",
@@ -308,14 +308,14 @@ const post_survey = {
               "What was the language you spoke at home when you were growing up?",
             name: "home language",
             textbox_columns: 20,
-            required: true,
+            isRequired: true,
           },
           {
             type: "text",
             title: "What language do you speak the majority of the day?",
             name: "language",
             textbox_columns: 20,
-            required: true,
+            isRequired: true,
           },
           {
             type: "drop-down",
@@ -327,7 +327,7 @@ const post_survey = {
               "Better than the average experiment",
             ],
             showOtherItem: true,
-            required: true,
+            isRequired: true,
           },
           {
             type: "text",
@@ -335,7 +335,6 @@ const post_survey = {
             name: "comments",
             textbox_columns: 30,
             textbox_rows: 4,
-            required: true,
           },
         ],
       },
