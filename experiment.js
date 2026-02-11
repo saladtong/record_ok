@@ -254,7 +254,7 @@ const post_survey = {
               },
             ],
             rowTitleWidth: 400,
-            columnMinWidth: 50,
+            columnMaxWidth: 50,
             alternateRows: true,
             isAllRowRequired: true,
           },
