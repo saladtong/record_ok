@@ -113,7 +113,6 @@ const trials = {
 const num_blocks = 4;
 
 for (let block = 0; block < num_blocks; block++) {
-  time_through++;
   timeline.push(trials);
 }
 
