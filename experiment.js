@@ -64,7 +64,8 @@ const trials = {
           time_through++;
           num = 0;
         }
-        const filename = `${subject_id}_block_${time_through}_number_${num}_trial_${
+        // id, block, order, global attempt number
+        const filename = `${subject_id}_b${time_through}_#${num}_a${
           jsPsych.getProgress().current_trial_global
         }_${jsPsych.timelineVariable("stimulus")}_audio.webm`;
         jsPsychPipe.saveBase64Data("OINjRk5EIMi8", filename, data.response);
@@ -201,7 +202,7 @@ const post_survey = {
               },
               {
                 value: "unconventional punctuation",
-                text: "I/’m comfortable using unconventional punctuation or capitalization in my texts.",
+                text: "I'm comfortable using unconventional punctuation or capitalization in my texts.",
               },
               {
                 value: "creativity",
@@ -245,7 +246,7 @@ const post_survey = {
               },
               {
                 value: "understanding abbreviations",
-                text: "I/’m skilled at understanding and interpreting abbreviations or shortcuts commonly used in various online communities.",
+                text: "I'm skilled at understanding and interpreting abbreviations or shortcuts commonly used in various online communities.",
               },
               {
                 value: "textese",
