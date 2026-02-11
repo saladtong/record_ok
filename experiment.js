@@ -5,6 +5,8 @@ const jsPsych = initJsPsych({
 });
 let timeline = [];
 
+const subject_id = jsPsych.randomization.randomID(10);
+
 const irb = {
   // Which plugin to use
   type: jsPsychHtmlButtonResponse,
@@ -41,6 +43,15 @@ var trial = {
   allow_playback: true,
   record_again_button_label: "Record Again",
   accept_button_label: true,
+  on_finish: function (data) {
+    const filename = `${subject_id}_${
+      jsPsych.getProgress().current_trial_global
+    }_audio.webm`;
+    jsPsychPipe.saveBase64Data("OINjRk5EIMi8", filename, data.response);
+    // delete the base64 data to save space. store the filename instead.
+    data.response = filename;
+  },
 };
+timeline.push(trial);
 
 jsPsych.run(timeline);
