@@ -102,6 +102,231 @@ for (let block = 0; block < num_blocks; block++) {
   time_through++;
 }
 
+const post_survey = {
+  type: jsPsychSurvey,
+  survey_json: {
+    pages: [
+      {
+        name: "page_1",
+        title: "Habits",
+        elements: [
+          {
+            type: "matrix",
+            title:
+              "Please indicate if you agree or disagree with the following statements",
+            columns: [
+              {
+                value: 5,
+                text: "Strongly agree",
+              },
+              {
+                value: 4,
+                text: "Agree",
+              },
+              {
+                value: 3,
+                text: "Neutral",
+              },
+              {
+                value: 2,
+                text: "Disagree",
+              },
+              {
+                value: 1,
+                text: "Strongly disagree",
+              },
+            ],
+            rows: [
+              {
+                value: "frequency",
+                text: "I frequently send text messages throughout the day.",
+              },
+              {
+                value: "preference in general",
+                text: "I prefer texting over making phone calls.",
+              },
+              {
+                value: "promptness",
+                text: "I always respond to text messages promptly.",
+              },
+              {
+                value: "emojis",
+                text: "I commonly use emojis or symbols to convey meaning instead of words.",
+              },
+              {
+                value: "re-read",
+                text: "I often re-read my messages before sending them.",
+              },
+              {
+                value: "abbreviations",
+                text: "I enjoy using text-based abbreviations to convey information quickly (e.g., 'FYI,' 'BTW').",
+              },
+              {
+                value: "primary mode",
+                text: "I use texting as my primary mode of communication with most people.",
+              },
+              {
+                value: "speed over accuracy",
+                text: "I tend to prioritize speed over accuracy when typing out text messages.",
+              },
+              {
+                value: "conventions",
+                text: "I find it natural to adapt to the language and spelling conventions commonly used in texting.",
+              },
+              {
+                value: "experimenting",
+                text: "I enjoy experimenting with new abbreviations or slang terms in my text messages.",
+              },
+              {
+                value: "preference for plans",
+                text: "I prefer texting for making plans rather than calling.",
+              },
+              {
+                value: "seek new slang",
+                text: "I actively seek out new abbreviations, slang terms, that emerge in online culture to stay current and connected in my text communications.",
+              },
+              {
+                value: "unconventional punctuation",
+                text: "I/’m comfortable using unconventional punctuation or capitalization in my texts.",
+              },
+              {
+                value: "creativity",
+                text: "I enjoy the creativity involved in adapting language and spelling for text messaging.",
+              },
+              {
+                value: "internet slang",
+                text: "I frequently incorporate internet slang into my text messages.",
+              },
+              {
+                value: "multiple conversations",
+                text: "I'm comfortable with having multiple conversations simultaneously via text.",
+              },
+              {
+                value: "informal",
+                text: "I prefer using informal language over formal language and proper spelling.",
+              },
+              {
+                value: "preference during work",
+                text: "I prefer texting during work or school hours rather than calling.",
+              },
+              {
+                value: "digits",
+                text: "I often use numerical digits instead of spelling out numbers in my text messages.",
+              },
+              {
+                value: "adapt for other's habits",
+                text: "I often adapt my texting styles based on the preferences and habits of the person I/’m texting.",
+              },
+              {
+                value: "adapt for identity",
+                text: "I adapt my texting style based on who I/'m communicating with (e.g., friends, family, colleagues).",
+              },
+              {
+                value: "different languages/tones",
+                text: "I use different languages and tones when texting with different people.",
+              },
+              {
+                value: "proper grammar",
+                text: "I prefer to use proper grammar and punctuation in my text messages.",
+              },
+              {
+                value: "understanding abbreviations",
+                text: "I/’m skilled at understanding and interpreting abbreviations or shortcuts commonly used in various online communities.",
+              },
+              {
+                value: "textese",
+                text: "I use textese to inject humor and personality into my messages.",
+              },
+            ],
+            alternateRows: true,
+            eachRowRequired: true,
+          },
+        ],
+      },
+      {
+        name: "page_2",
+        title: "Demographic Information",
+        showQuestionNumbers: false,
+        elements: [
+          {
+            type: "radiogroup",
+            title:
+              "Did you read the instructions and do you think you did the task correctly?",
+            name: "instructions",
+            choices: ["Yes", "No", "I was confused"],
+            required: true,
+          },
+          {
+            type: "dropdown",
+            title: "Gender:",
+            name: "Gender",
+            choices: ["Female", "Male", "Non-binary/Non-conforming", "Other"],
+            required: true,
+          },
+
+          {
+            type: "text",
+            title: "Age:",
+            name: "age",
+            textbox_columns: 10,
+            required: true,
+          },
+          {
+            type: "dropdown",
+            title: "Level of education:",
+            name: "education",
+            choices: [
+              "Some high school",
+              "Graduated high school",
+              "Some college",
+              "Graduated college",
+              "Hold a higher degree",
+            ],
+            showOtherItem: true,
+            required: true,
+          },
+          {
+            type: "text",
+            title:
+              "What was the language you spoke at home when you were growing up?",
+            name: "home language",
+            textbox_columns: 20,
+            required: true,
+          },
+          {
+            type: "text",
+            title: "What language do you speak the majority of the day?",
+            name: "language",
+            textbox_columns: 20,
+            required: true,
+          },
+          {
+            type: "drop-down",
+            title: "Did you enjoy the experiment?",
+            name: "enjoy",
+            options: [
+              "Worse than the average experiment",
+              "An average experiment",
+              "Better than the average experiment",
+            ],
+            showOtherItem: true,
+            required: true,
+          },
+          {
+            type: "text",
+            title: "Do you have any other comments about this experiment?",
+            name: "comments",
+            textbox_columns: 30,
+            textbox_rows: 4,
+            required: true,
+          },
+        ],
+      },
+    ],
+  },
+};
+timeline.push(post_survey);
+
 const thanks = {
   type: jsPsychHtmlButtonResponse,
   choices: ["Continue"],
