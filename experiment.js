@@ -253,6 +253,7 @@ const post_survey = {
                 text: "I use textese to inject humor and personality into my messages.",
               },
             ],
+            rowTitleWidth: 500,
             alternateRows: true,
             eachRowRequired: true,
           },
