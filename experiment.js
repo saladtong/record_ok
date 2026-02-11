@@ -32,6 +32,8 @@ var initialize = {
 };
 timeline.push(initialize);
 
+var time_through = 1;
+
 const trials = {
   timeline: [
     {
@@ -46,7 +48,7 @@ const trials = {
       record_again_button_label: "Record Again",
       accept_button_label: "Continue",
       on_finish: function (data) {
-        const filename = `${subject_id}_${
+        const filename = `${subject_id}_${"block" + time_through}_${
           jsPsych.getProgress().current_trial_global
         }_${jsPsych.timelineVariable("stimulus")}_audio.webm`;
         jsPsychPipe.saveBase64Data("OINjRk5EIMi8", filename, data.response);
@@ -90,7 +92,13 @@ const trials = {
   ],
   randomize_order: true,
 };
-timeline.push(trial);
+
+const num_blocks = 4;
+
+for (let block = 0; block < num_blocks; block++) {
+  timeline.push(trial);
+  time_through++;
+}
 
 const thanks = {
   type: jsPsychHtmlButtonResponse,
