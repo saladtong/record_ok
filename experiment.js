@@ -60,7 +60,7 @@ const trials = {
       accept_button_label: "Continue",
       on_finish: function (data) {
         num++;
-        if (num > 25) {
+        if (num > 3) {
           time_through++;
           num = 1;
         }
@@ -85,33 +85,33 @@ const trials = {
     { stimulus: "O.K." },
     { stimulus: "OK" },
     { stimulus: "ok" },
-    { stimulus: "Ok" },
-    { stimulus: "ok ok" },
-    { stimulus: "ok," },
-    { stimulus: "ok!" },
-    { stimulus: "Ok!" },
-    { stimulus: "OK!" },
-    { stimulus: "ok." },
-    { stimulus: "OK." },
-    { stimulus: "okay" },
-    { stimulus: "Okay" },
-    { stimulus: "OKAY" },
-    { stimulus: "okay!" },
-    { stimulus: "Okay!" },
-    { stimulus: "okay." },
-    { stimulus: "Okay." },
-    { stimulus: "okayy" },
-    { stimulus: "okey" },
-    { stimulus: "oki" },
-    { stimulus: "okie" },
-    { stimulus: "okii" },
-    { stimulus: "okk" },
-    { stimulus: "okok" },
+    // { stimulus: "Ok" },
+    // { stimulus: "ok ok" },
+    // { stimulus: "ok," },
+    // { stimulus: "ok!" },
+    // { stimulus: "Ok!" },
+    // { stimulus: "OK!" },
+    // { stimulus: "ok." },
+    // { stimulus: "OK." },
+    // { stimulus: "okay" },
+    // { stimulus: "Okay" },
+    // { stimulus: "OKAY" },
+    // { stimulus: "okay!" },
+    // { stimulus: "Okay!" },
+    // { stimulus: "okay." },
+    // { stimulus: "Okay." },
+    // { stimulus: "okayy" },
+    // { stimulus: "okey" },
+    // { stimulus: "oki" },
+    // { stimulus: "okie" },
+    // { stimulus: "okii" },
+    // { stimulus: "okk" },
+    // { stimulus: "okok" },
   ],
   randomize_order: true,
 };
 
-const num_blocks = 4;
+const num_blocks = 3;
 
 for (let block = 0; block < num_blocks; block++) {
   timeline.push(trials);
