@@ -22,7 +22,7 @@ timeline.push(irb);
 const instructions = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
-    "In this experiment, you will see a series of words. Please start recording, read the onscreen word aloud, and stop the recording. Try to respond as quickly and accurately as you can.<br>When you're ready to begin, press the space bar.",
+    "In this experiment, you will see a series of words.<br>Please read the onscreen word aloud.<br>Try to respond as quickly and accurately as you can.<br>When you're ready to begin, press the space bar.",
   choices: [" "],
 };
 timeline.push(instructions);
