@@ -32,26 +32,72 @@ var initialize = {
 };
 timeline.push(initialize);
 
-var trial = {
-  type: jsPsychHtmlAudioResponse,
-  stimulus: `
-    <p style="font-size:48px; color:black;">Ok</p>
+const trials = {
+  timeline: [
+    {
+      type: jsPsychHtmlAudioResponse,
+      stimulus: `
+    <p style="font-size:48px; color:black;">{jsPsych.timelineVariable("stimulus")}</p>
     <p>Speak the above word.</p>`,
-  recording_duration: 3500,
-  show_done_button: true,
-  done_button_label: "Continue",
-  allow_playback: true,
-  record_again_button_label: "Record Again",
-  accept_button_label: true,
-  on_finish: function (data) {
-    const filename = `${subject_id}_${
-      jsPsych.getProgress().current_trial_global
-    }_audio.webm`;
-    jsPsychPipe.saveBase64Data("OINjRk5EIMi8", filename, data.response);
-    // delete the base64 data to save space. store the filename instead.
-    data.response = filename;
-  },
+      recording_duration: 3500,
+      show_done_button: true,
+      done_button_label: "Continue",
+      allow_playback: true,
+      record_again_button_label: "Record Again",
+      accept_button_label: "Continue",
+      on_finish: function (data) {
+        const filename = `${subject_id}_${
+          jsPsych.getProgress().current_trial_global
+        }_${jsPsych.timelineVariable("stimulus")}_audio.webm`;
+        jsPsychPipe.saveBase64Data("OINjRk5EIMi8", filename, data.response);
+        // delete the base64 data to save space. store the filename instead.
+        data.response = filename;
+      },
+    },
+    {
+      type: jsPsychHtmlKeyboardResponse,
+      choices: [""],
+      stimulus: "",
+      response_ends_trial: false,
+      trial_duration: 1000,
+    },
+  ],
+  timeline_variables: [
+    { stimulus: "O.K." },
+    { stimulus: "OK" },
+    { stimulus: "ok" },
+    { stimulus: "Ok" },
+    { stimulus: "ok ok" },
+    { stimulus: "ok," },
+    { stimulus: "ok!" },
+    { stimulus: "Ok!" },
+    { stimulus: "OK!" },
+    { stimulus: "ok." },
+    { stimulus: "OK." },
+    { stimulus: "okay" },
+    { stimulus: "Okay" },
+    { stimulus: "OKAY" },
+    { stimulus: "okay!" },
+    { stimulus: "Okay!" },
+    { stimulus: "okay." },
+    { stimulus: "Okay." },
+    { stimulus: "okayy" },
+    { stimulus: "okey" },
+    { stimulus: "oki" },
+    { stimulus: "okie" },
+    { stimulus: "okii" },
+    { stimulus: "okk" },
+  ],
+  randomize_order: true,
 };
 timeline.push(trial);
+
+const thanks = {
+  type: jsPsychHtmlButtonResponse,
+  choices: ["Continue"],
+  stimulus:
+    "Thank you for your time! Please click 'Continue' and then wait a moment until you're directed back.<br><br>",
+};
+timeline.push(thanks);
 
 jsPsych.run(timeline);
