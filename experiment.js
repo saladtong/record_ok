@@ -54,13 +54,13 @@ const trials = {
         data.response = filename;
       },
     },
-    {
-      type: jsPsychHtmlKeyboardResponse,
-      choices: [""],
-      stimulus: "",
-      response_ends_trial: false,
-      trial_duration: 1000,
-    },
+    // {
+    //   type: jsPsychHtmlKeyboardResponse,
+    //   choices: [""],
+    //   stimulus: "",
+    //   response_ends_trial: false,
+    //   trial_duration: 1000,
+    // },
   ],
   timeline_variables: [
     { stimulus: "O.K." },
