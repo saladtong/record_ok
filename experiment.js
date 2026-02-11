@@ -60,7 +60,7 @@ const trials = {
       accept_button_label: "Continue",
       on_finish: function (data) {
         num++;
-        if (num > 25) {
+        if (num > 3) {
           time_through++;
           num = 0;
         }
@@ -254,6 +254,7 @@ const post_survey = {
               },
             ],
             rowTitleWidth: 500,
+            columnMinWidth: 80,
             alternateRows: true,
             eachRowRequired: true,
           },
