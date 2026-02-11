@@ -96,7 +96,7 @@ const trials = {
 const num_blocks = 4;
 
 for (let block = 0; block < num_blocks; block++) {
-  timeline.push(trial);
+  timeline.push(trials);
   time_through++;
 }
 
