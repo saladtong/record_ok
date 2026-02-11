@@ -113,9 +113,9 @@ const trials = {
 
 const num_blocks = 4;
 
-// for (let block = 0; block < num_blocks; block++) {
-//   timeline.push(trials);
-// }
+for (let block = 0; block < num_blocks; block++) {
+  timeline.push(trials);
+}
 
 const post_survey = {
   type: jsPsychSurvey,
