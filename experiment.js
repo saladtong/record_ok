@@ -22,7 +22,7 @@ timeline.push(irb);
 const instructions = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
-    "In this experiment, you will see a series of words.<br>Please read the onscreen word aloud.<br>Try to respond as quickly and accurately as you can.<br>When you're ready to begin, press the space bar.",
+    "In this experiment, you will see a series of words.<br>Please read the onscreen word aloud.<br>Try to respond as quickly and accurately as you can.<br>We will start with two practice trials so you can see how recording works. When you're ready to begin, press the space bar.",
   choices: [" "],
 };
 timeline.push(instructions);
@@ -31,6 +31,55 @@ var initialize = {
   type: jsPsychInitializeMicrophone,
 };
 timeline.push(initialize);
+
+practice = 0;
+
+const practice_trials = {
+  timeline: [
+    {
+      type: jsPsychHtmlAudioResponse,
+      stimulus: function () {
+        return `
+      <p style="font-size:48px; color:black;">${jsPsych.timelineVariable(
+        "stimulus"
+      )}</p>
+    <p>Speak the above word.</p>
+    <div class="loading">
+      <div class="progress-bar">
+        <span></span>
+      </div>
+    </div>
+    `;
+      },
+      recording_duration: 3500,
+      // show_done_button: true,
+      // done_button_label: "Continue",
+      // allow_playback: true,
+      // record_again_button_label: "Record Again",
+      // accept_button_label: "Continue",
+      on_finish: function (data) {
+        // id, block, order, global attempt number
+        const filename = `${subject_id}_practice${practice}_${jsPsych.timelineVariable(
+          "stimulus"
+        )}_audio.webm`;
+        jsPsychPipe.saveBase64Data("OINjRk5EIMi8", filename, data.response);
+        // delete the base64 data to save space. store the filename instead.
+        data.response = filename;
+      },
+    },
+  ],
+  timeline_variables: [{ stimulus: "Okay." }, { stimulus: "ok" }],
+};
+
+timeline.push(practice_trials);
+
+const main = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus:
+    "The main experiment will last ___ continuous minutes. When you're ready to begin, press the space bar.",
+  choices: [" "],
+};
+timeline.push(main);
 
 var time_through = 1;
 var num = 0;
@@ -53,21 +102,21 @@ const trials = {
     `;
       },
       recording_duration: 3500,
-      show_done_button: true,
-      done_button_label: "Continue",
-      allow_playback: true,
-      record_again_button_label: "Record Again",
-      accept_button_label: "Continue",
+      // show_done_button: true,
+      // done_button_label: "Continue",
+      // allow_playback: true,
+      // record_again_button_label: "Record Again",
+      // accept_button_label: "Continue",
       on_finish: function (data) {
         num++;
         if (num > 25) {
           time_through++;
           num = 1;
         }
-        // id, block, order, global attempt number
-        const filename = `${subject_id}_b${time_through}_#${num}_a${
-          jsPsych.getProgress().current_trial_global
-        }_${jsPsych.timelineVariable("stimulus")}_audio.webm`;
+        // id, block, order, stimulus
+        const filename = `${subject_id}_b${time_through}_#${num}_${jsPsych.timelineVariable(
+          "stimulus"
+        )}_audio.webm`;
         jsPsychPipe.saveBase64Data("OINjRk5EIMi8", filename, data.response);
         // delete the base64 data to save space. store the filename instead.
         data.response = filename;
@@ -128,27 +177,27 @@ const post_survey = {
           {
             type: "matrix",
             title:
-              "Please indicate if you agree or disagree with the following statements on a scale from 5 (Strongly Agree) to 1 (Strongly Disagree).",
+              "Please indicate if you agree or disagree with the following statements on a scale from 1 (Strongly Disagree) to 5 (Strongly Agree).",
             columns: [
               {
-                value: 5,
-                text: "5",
-              },
-              {
-                value: 4,
-                text: "4",
-              },
-              {
-                value: 3,
-                text: "3",
+                value: 1,
+                text: "1",
               },
               {
                 value: 2,
                 text: "2",
               },
               {
-                value: 1,
-                text: "1",
+                value: 3,
+                text: "3",
+              },
+              {
+                value: 4,
+                text: "4",
+              },
+              {
+                value: 5,
+                text: "5",
               },
             ],
             rows: [
@@ -261,7 +310,51 @@ const post_survey = {
         ],
       },
       {
-        name: "page_2",
+        name: "familiarity",
+        title: "Familiarity",
+        showQuestionNumbers: false,
+        elements: [
+          {
+            type: "matrix",
+            title:
+              "Every variation of 'ok' that you read in this experiment was pulled from text messages. Please indicate if you agree or disagree with the following statements on a scale from 1 (Strongly Disagree) to 5 (Strongly Agree).",
+            columns: [
+              {
+                value: 1,
+                text: "1",
+              },
+              {
+                value: 2,
+                text: "2",
+              },
+              {
+                value: 3,
+                text: "3",
+              },
+              {
+                value: 4,
+                text: "4",
+              },
+              {
+                value: 5,
+                text: "5",
+              },
+            ],
+            rows: [
+              {
+                value: "familiarity",
+                text: "I am familiar with these typing variations.",
+              },
+              {
+                value: "usage",
+                text: "I use these variations in my texting habits.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "page_3",
         title: "Demographic Information",
         showQuestionNumbers: false,
         elements: [
