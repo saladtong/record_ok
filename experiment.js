@@ -1,6 +1,6 @@
 const jsPsych = initJsPsych({
   on_finish: function () {
-    jsPsych.data.displayData("csv");
+    // jsPsych.data.displayData("csv");
   },
 });
 let timeline = [];
@@ -22,7 +22,7 @@ timeline.push(irb);
 const instructions = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
-    "In this experiment, you will see a series of words.<br>Please read the onscreen word aloud.<br>Try to respond as quickly and accurately as you can.<br>We will start with two practice trials so you can see how recording works. When you're ready to begin, press the space bar.",
+    "In this experiment, you will see a series of words.<br>Please read the onscreen word aloud.<br>Try to respond as quickly and accurately as you can.<br>We will start with two practice trials so you can see how recording works. <br> <br>When you're ready to begin, press the space bar.",
   choices: [" "],
 };
 timeline.push(instructions);
@@ -76,7 +76,7 @@ timeline.push(practice_trials);
 const main = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
-    "The main experiment will last ___ continuous minutes. When you're ready to begin, press the space bar.",
+    "The main experiment will last about 6 minutes. When you're ready to begin, press the space bar.",
   choices: [" "],
 };
 timeline.push(main);
