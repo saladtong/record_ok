@@ -1,12 +1,5 @@
 const jsPsych = initJsPsych({
   on_finish: function () {
-    const save_data = {
-      type: jsPsychPipe,
-      action: "save",
-      experiment_id: "OINjRk5EIMi8",
-      filename: `${subject_id}.csv`,
-      data_string: () => jsPsych.data.get().csv(),
-    };
     // jsPsych.data.displayData("csv");
   },
 });
@@ -450,5 +443,14 @@ const thanks = {
     "Thank you for your time! Please click 'Continue' and then wait a moment until you're directed back.<br><br>",
 };
 timeline.push(thanks);
+
+const save_data = {
+  type: jsPsychPipe,
+  action: "save",
+  experiment_id: "OINjRk5EIMi8",
+  filename: `${subject_id}.csv`,
+  data_string: () => jsPsych.data.get().csv(),
+};
+timeline.push(save_data);
 
 jsPsych.run(timeline);
