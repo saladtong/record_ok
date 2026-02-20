@@ -1,5 +1,12 @@
 const jsPsych = initJsPsych({
   on_finish: function () {
+    const save_data = {
+      type: jsPsychPipe,
+      action: "save",
+      experiment_id: "OINjRk5EIMi8",
+      filename: `${subject_id}.csv`,
+      data_string: () => jsPsych.data.get().csv(),
+    };
     // jsPsych.data.displayData("csv");
   },
 });
