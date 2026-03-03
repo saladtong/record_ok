@@ -52,7 +52,7 @@ const practice_trials = {
     `;
       },
       recording_duration: 3500,
-      // show_done_button: true,
+      show_done_button: false,
       // done_button_label: "Continue",
       // allow_playback: true,
       // record_again_button_label: "Record Again",
@@ -102,7 +102,7 @@ const trials = {
     `;
       },
       recording_duration: 3500,
-      // show_done_button: true,
+      show_done_button: false,
       // done_button_label: "Continue",
       // allow_playback: true,
       // record_again_button_label: "Record Again",
