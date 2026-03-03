@@ -22,10 +22,18 @@ timeline.push(irb);
 const instructions = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus:
-    "In this experiment, you will see a series of words.<br>Please read the onscreen word aloud.<br>Try to respond as quickly and accurately as you can.<br>We will start with two practice trials so you can see how recording works. <br> <br>When you're ready to begin, press the space bar.",
+    "In this experiment, you will see a series of words.<br>Please read the onscreen word aloud.<br> You'll see different people's usage of the word 'ok,' and we'd like to know how you pronounce them. <br>Try to respond as quickly and accurately as you can. Press the space bar to receive instructions for recording.",
   choices: [" "],
 };
 timeline.push(instructions);
+
+const recording_instructions = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus:
+    "In this task you will have your speech recorded. To make sure the recordings are clear, please follow these tips:<br><br> 1. Try to be in a room with plenty of soft materials (blankets, rugs, pillows) to prevent echoes. <br>2. Get comfortable and settled. <br> 3. Face the microphone, approximately 12-18 inches away. <br>4. Put your hands on your lap and sit calmly. Try not to move around. <br><br>We will start with two practice trials so you can see how recording works. <br> <br>When you're ready to begin, press the space bar.",
+  choices: [" "],
+};
+timeline.push(recording_instructions);
 
 var initialize = {
   type: jsPsychInitializeMicrophone,
