@@ -444,14 +444,6 @@ const post_survey = {
 };
 timeline.push(post_survey);
 
-const thanks = {
-  type: jsPsychHtmlButtonResponse,
-  choices: ["Continue"],
-  stimulus:
-    "Thank you for your time! Please click 'Continue' and then wait a moment until you're directed back.<br><br>",
-};
-timeline.push(thanks);
-
 const save_data = {
   type: jsPsychPipe,
   action: "save",
@@ -461,12 +453,13 @@ const save_data = {
 };
 timeline.push(save_data);
 
-const thank_you = {
-  type: jsPsychHtmlButtonResponse,
-  // What should be displayed on the screen
-  stimulus: '<p><font size="3">Thank you! You may close this page.</font></p>',
-  // What should the button(s) say
-  choices: ["Continue"],
+const final = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: `<p>You've finished the study. Thank you for your time!</p>
+  <br> 
+  <p><a href="https://app.prolific.com/submissions/complete?cc=CELS6GBV">Click here to return to Prolific and complete the study</a>.</p>`,
+  choices: "NO_KEYS",
 };
+timeline.push(final);
 
 jsPsych.run(timeline);
