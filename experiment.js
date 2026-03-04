@@ -461,4 +461,12 @@ const save_data = {
 };
 timeline.push(save_data);
 
+const thank_you = {
+  type: jsPsychHtmlButtonResponse,
+  // What should be displayed on the screen
+  stimulus: '<p><font size="3">Thank you! You may close this page.</font></p>',
+  // What should the button(s) say
+  choices: ["Continue"],
+};
+
 jsPsych.run(timeline);
